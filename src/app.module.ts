@@ -20,6 +20,8 @@ import { RedisModule } from './redis/redis.module';
 import { EmailModule } from './email/email.module';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthGuard } from './common/guards/auth.guard';
+import { BookingModule } from './room/booking/booking.module';
+import { MeetingModule } from './room/meeting/meeting.module';
 
 @Module({
   imports: [
@@ -67,6 +69,8 @@ import { AuthGuard } from './common/guards/auth.guard';
     PostModule,
     RedisModule,
     EmailModule,
+    BookingModule,
+    MeetingModule,
   ],
   controllers: [AppController],
   providers: [
