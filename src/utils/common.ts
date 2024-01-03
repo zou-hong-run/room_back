@@ -1,9 +1,16 @@
+import { BadRequestException, ParseIntPipe } from '@nestjs/common';
 import * as crypto from 'crypto';
 
-const md5 = (str: string) => {
+export const md5 = (str: string) => {
   const hash = crypto.createHash('md5');
   hash.update(str);
   return hash.digest('hex');
 };
 
-export { md5 };
+export const generateParseIntPipe = (name: string) => {
+  return new ParseIntPipe({
+    exceptionFactory() {
+      throw new BadRequestException(name + ' 应该传数字');
+    },
+  });
+};
