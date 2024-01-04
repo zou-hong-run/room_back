@@ -22,6 +22,7 @@ export class MeetingService {
     capacity: number,
     equipment: string,
     location: string,
+    description: string,
   ) {
     if (page_no < 1) {
       throw new BadRequestException('页码最小为 1');
@@ -41,6 +42,9 @@ export class MeetingService {
     }
     if (location) {
       condition.location = location;
+    }
+    if (description) {
+      condition.description = description;
     }
 
     const [meetings, totalCount] = await this.repository.findAndCount({

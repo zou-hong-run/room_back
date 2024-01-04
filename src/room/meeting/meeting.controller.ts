@@ -34,7 +34,7 @@ export class MeetingController {
     page_no: number,
     @Query(
       'page_size',
-      new DefaultValuePipe(2),
+      new DefaultValuePipe(10),
       generateParseIntPipe('page_size'),
     )
     page_size: number,
@@ -42,6 +42,7 @@ export class MeetingController {
     @Query('capacity') capacity: number,
     @Query('equipment') equipment: string,
     @Query('location') location: string,
+    @Query('description') description: string,
   ) {
     return await this.meetingService.find(
       page_no,
@@ -50,6 +51,7 @@ export class MeetingController {
       capacity,
       equipment,
       location,
+      description,
     );
   }
 
