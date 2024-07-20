@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Transporter, createTransport } from 'nodemailer';
 import { ConfigurationKeyPaths } from 'src/config/configuration';
-// TQCUZCPUDOXOUBUY
+
 @Injectable()
 export class EmailService {
   transporter: Transporter;
